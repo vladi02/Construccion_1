@@ -44,6 +44,9 @@ class clase{
     public void eliminar(dato d){
         ListaAlum.remove(d);
     }
+    public void modificar(int pos,dato d){
+         ListaAlum.set(pos, d);
+     }
     public void mostrar(){
         for(int i=0;i<ListaAlum.size();i++){
             System.out.println(ListaAlum.get(i).toString());
@@ -61,7 +64,8 @@ public class alumno {
         c.agregar(d2);
         c.agregar(d3);
         c.agregar(d4);
-        c.eliminar(d2);
+        //c.eliminar(d2);
+        c.modificar(0, d2);
         c.mostrar();
     }
 }

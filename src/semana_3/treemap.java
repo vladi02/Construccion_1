@@ -26,6 +26,7 @@ public class treemap {
         // MOSTRAMOS EL TREEMAP
         System.out.println("TreeMap: "
                            + tree_map); 
+        System.out.println(tree_map.get(10));
     } 
     // USAMOS EL MAIN
     public static void main(String[] args) 

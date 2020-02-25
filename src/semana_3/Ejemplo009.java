@@ -120,6 +120,9 @@ class Empleado{
      public void agregar(Empleado e){
          ListEmpleado.add(e);
      }
+     public void modificar(int pos,Empleado e){
+         ListEmpleado.set(pos, e);
+     }
       public String MayorSueldo(){
          double mayor=0.0;
          String cad="";
@@ -223,6 +226,7 @@ public class Ejemplo009 {
         t1.agregar(emp2);
         t1.agregar(emp3);
         t1.agregar(emp4);
+        //t1.modificar(0, emp4);
         t1.MayorSueldo();
         t1.Gasto_total();
         t1.Num_Empleados();
