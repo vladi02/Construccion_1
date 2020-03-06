@@ -14,14 +14,13 @@ import java.util.Scanner;
  */
 public class Evento implements CRUD {
      Scanner sc=new Scanner(System.in);
+    double totalPagar=0.0;
     private String titulo;
     private String duracion;
     private String horaIngreso;
     private String horaSalida;
     private boolean temporadaAlta;
-    
-    private Constantes constantes=new Constantes();
-    
+       
     private ArrayList<Expositor> expositores=new ArrayList<Expositor>();
     
     private ArrayList<Asistente> asistentes=new ArrayList<Asistente>();
@@ -123,11 +122,11 @@ public class Evento implements CRUD {
     public void costoIngreso(int cod){
         do{
             if(cod==1){
-                System.out.println("precio normal="+constantes.platinum+"$");
+                System.out.println("precio normal="+platinum+"$");
             }else if(cod==2){
-                System.out.println("precio normal="+constantes.gold+"$");
+                System.out.println("precio normal="+gold+"$");
             }else if(cod==3){
-                System.out.println("precio normal="+constantes.vip+"$");
+                System.out.println("precio normal="+vip+"$");
             }
         }while(cod>3);
  
@@ -136,17 +135,17 @@ public class Evento implements CRUD {
     public void masIGV(int cod){
         double igv;
         if(cod==1){   
-            igv=(constantes.platinum)*0.18;
-            constantes.totalPagar=(constantes.platinum)+igv;
-            System.out.println(" + igv="+constantes.totalPagar+"$");
+            igv=(platinum)*0.18;
+            totalPagar=platinum+igv;
+            System.out.println(" + igv="+totalPagar+"$");
         }else if(cod==2){
-            igv=(constantes.gold)*0.18;
-            constantes.totalPagar=(constantes.gold)+igv;
-            System.out.println("+ igv="+constantes.totalPagar+"$");
+            igv=(gold)*0.18;
+            totalPagar=gold+igv;
+            System.out.println("+ igv="+totalPagar+"$");
         }else if(cod==3){
-            igv=(constantes.vip)*0.18;
-            constantes.totalPagar=(constantes.vip)+igv;
-            System.out.println("+ igv="+constantes.totalPagar+"$");
+            igv=(vip)*0.18;
+            totalPagar=vip+igv;
+            System.out.println("+ igv="+totalPagar+"$");
         }else {
             System.out.println("NO ESTA ENTRE LAS OPCIONES");
         }
@@ -157,39 +156,39 @@ public class Evento implements CRUD {
         double des;
         if(cod==1){
             if(isTemporadaAlta()==false){
-                des=constantes.platinum*0.10;
-                constantes.totalPagar-=des;
+                des=platinum*0.10;
+                totalPagar-=des;
                 System.out.println("temporada baja -10% :"+des+"$");
-                System.out.println("Su pago sera: "+constantes.totalPagar+"$");
+                System.out.println("Su pago sera: "+totalPagar+"$");
             }else{
-                des=constantes.platinum*0.05;
-                constantes.totalPagar-=des;
+                des=platinum*0.05;
+                totalPagar-=des;
                 System.out.println("temporada alta -5% : "+des+"$");
-                System.out.println("Su pago sera: "+constantes.totalPagar+"$");
+                System.out.println("Su pago sera: "+totalPagar+"$");
             }
         }else if(cod==2){
             if(isTemporadaAlta()==false){
-                des=constantes.gold*0.10;
-                constantes.totalPagar-=des;
+                des=gold*0.10;
+                totalPagar-=des;
                 System.out.println("temporada baja -10% : "+des+"$");
-                System.out.println("Su pago sera: "+constantes.totalPagar+"$");
+                System.out.println("Su pago sera: "+totalPagar+"$");
             }else{
-                des=constantes.gold*0.05;
-                constantes.totalPagar-=des;
+                des=gold*0.05;
+                totalPagar-=des;
                 System.out.println("temporada alta -5% : "+des+"$");
-                System.out.println("Su pago sera: "+constantes.totalPagar+"$");
+                System.out.println("Su pago sera: "+totalPagar+"$");
             }
         }else if(cod==3){
             if(isTemporadaAlta()==false){
-                des=constantes.vip*0.10;
-                constantes.totalPagar-=des;
+                des=vip*0.10;
+                totalPagar-=des;
                 System.out.println("temporada baja -10% : "+des+"$");
-                System.out.println("Su pago sera: "+constantes.totalPagar+"$");
+                System.out.println("Su pago sera: "+totalPagar+"$");
             }else{
-                des=constantes.vip*0.05;
-                constantes.totalPagar-=des;
+                des=vip*0.05;
+                totalPagar-=des;
                 System.out.println("temporada alta -5% : "+des+"$");
-                System.out.println("Su pago sera: "+constantes.totalPagar+"$");
+                System.out.println("Su pago sera: "+totalPagar+"$");
             }
         }
     }
